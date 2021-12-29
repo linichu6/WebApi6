@@ -12,9 +12,11 @@ namespace WebApi6.Controllers
     public class PatiensController : ControllerBase
     {
         private IPatienRepository _repo;
-        public PatiensController(IPatienRepository patienRepository)
+        private ILogger _logger;
+        public PatiensController(ILogger logger, IPatienRepository patienRepository)
         {
             _repo = patienRepository;
+            _logger = logger;
         }
 
         [HttpGet("GetAllPatiens")]
